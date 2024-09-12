@@ -3,68 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Screen</title>
+    <title>The Boundless Tail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* Ensures the body takes up the full height of the viewport */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Ensures the footer sticks to the bottom */
-            font-family: Arial, sans-serif;
-            background-color: white; /* Adjust background as needed */
+        /* Custom animations for background movement */
+        @keyframes bgUpDown {
+            0%, 100% { background-position: center 0; }
+            50% { background-position: center 15%; }
+        }
+        .animate-bgUpDown {
+            animation: bgUpDown 10s ease-in-out infinite;
         }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f8f8f8;
-            width: 100%;
+        /* Larger text for readability */
+        h1, h2, p {
+            font-size: 1.5rem; /* default */
         }
-
-        .loading-container {
-            text-align: center;
+        
+        @media (min-width: 768px) {
+            h1 { font-size: 8rem; } /* Larger heading for larger screens */
+            h2 { font-size: 6rem; }
+            p { font-size: 4rem; }
         }
-
-        .loading-text {
-            font-size: 2rem;
-            letter-spacing: 0.2rem;
-            animation: blink 1.5s step-start infinite;
+        .chapter1 {
+            max-height: 50%;
         }
-
-        @keyframes blink {
-            0%, 100% {
-                color: black;
-            }
-            50% {
-                color: transparent;
-            }
+        .text-container {
+            background-color: rgba(34, 32, 32, 0.775);
+            border-radius: 20px;
+            margin: 10%;
         }
+       
 
-        .audio-recommendation {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #555;
+        /* Smooth transition for background image */
+        .bg-transition {
+            transition: background-image 1s ease-in-out;
         }
-
-        .headphone-icon {
-            margin-top: 10px;
-            font-size: 2rem;
-            color: black;
-        }
-
     </style>
 </head>
-<body>
+<body class="bg-black text-white">
 
-    <footer>
-        <div class="loading-container">
-            <div class="loading-text">LOADING...</div>
-            <div class="audio-recommendation">This site uses audio <br> Headphones are recommended</div>
-            <div class="headphone-icon">🎧</div>
+    <!-- Hero Section (Home Page) -->
+    <section id="hero" class="h-screen relative flex items-center justify-center bg-cover bg-fixed animate-bgUpDown" style="background-image: url('./images/image1.png')">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="text-center z-10">
+            <h1 class="font-bold">The Boundless Tale</h1>
+            <p class="mt-4"><i>Where the line between reality and fiction blurs, only the strength to choose can set you free </i></p>
         </div>
-    </footer>
+    </section>
+    <hr>
+
+    <!-- Chapter 1: Once Upon a Time -->
+    <section id="chapter1" class="h-screen relative flex items-center justify-center bg-cover bg-fixed animate-bgUpDown" style="background-image: url('./images/image2.png')">
+        <div class="text-container text-center z-10 bg-black bg-opacity-70 p-6 rounded-lg mx-4 md:mx-12">
+            <h2>Once Upon a Time</h2>
+            <p>Once upon a time, in a small town nestled between rolling hills and thick forests, there lived a boy named Oliver. From the moment he learned to read, books became his refuge, transforming his ordinary world into a boundless realm of adventure.</p>
+        </div>
+    </section>
+
+    <!-- Chapter 2: The Peculiar Book -->
+    <section id="chapter2" class="h-screen relative flex items-center justify-center bg-gray-900 text-white text-center bg-cover bg-fixed animate-bgUpDown" style="background-image: url('./images/book2.png')">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="text-container text-center z-10 bg-black bg-opacity-70 p-6 rounded-lg mx-4 md:mx-12">
+            <h2>The Peculiar Book</h2>
+            <p class="mt-4">One sunny afternoon, while rummaging through his backyard, Oliver stumbled upon a peculiar book half-buried in the dirt. It was leather-bound with strange symbols etched onto the cover. Curious, he opened it and was consumed by its magic...</p>
+        </div>
+    </section>
+
+    <!-- Chapter 3: Into the Story -->
+    <section id="chapter3" class="h-screen relative flex items-center justify-center bg-cover bg-fixed animate-bgUpDown bg-transition" style="background-image: url('./images/book1.png')">
+        <div class="text-container text-center z-10 bg-black bg-opacity-70 p-6 rounded-lg mx-4 md:mx-12">
+            <h2>Into the Story</h2>
+            <p class="mt-4">Days turned into weeks as Oliver lost track of time. He could hardly part from the book, its enchanting words lulling him into a spellbinding slumber. But one night, the characters from the story appeared before him, pulling him into their world...</p>
+        </div>
+    </section>
+
+    <!-- Chapter 4: A Hero’s Realization -->
+    <section id="chapter4" class="h-screen relative flex items-center justify-center bg-gray-900 text-white text-center bg-cover bg-fixed animate-bgUpDown" style="background-image: url('./images/realise.png')">
+        <div class="text-container text-center z-10 bg-black bg-opacity-70 p-6 rounded-lg mx-4 md:mx-12">
+            <h2>A Hero’s Realization</h2>
+            <p class="mt-4">Amidst battles and chaos, Oliver realized he was no longer a reader but a character. He recalled a line from an old book: “The heart of a true hero lies in the strength to choose.” With that, he grounded himself in reality and escaped the story’s grasp.</p>
+        </div>
+    </section>
+
+    <!-- Chapter 5: The Return -->
+    <section id="chapter5" class="h-screen flex items-center justify-center bg-black text-white text-center">
+        <div>
+            <h2>The Return</h2>
+            <p class="mt-4">Back in his room, safe but changed, Oliver understood that books were gateways to experiences—but they should never replace the life waiting to be lived. And as he smiled, he knew he was the author of his own tale, free to live in a world all his own.</p>
+        </div>
+    </section>
+
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
+    <script>
+        // GSAP animations for smooth scrolling between sections
+        gsap.utils.toArray("section").forEach(section => {
+            gsap.fromTo(section, { opacity: 0 }, {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top center",
+                    toggleActions: "play none none none",
+                }
+            });
+        });
+
+        // Smooth scrolling for larger text as the user scrolls through the story
+        gsap.from("#hero h1", {duration: 1.5, opacity: 0, y: -100});
+        gsap.from("#hero p", {duration: 2, opacity: 0, delay: 0.5});
+
+        // JavaScript to change background image on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const section3 = document.querySelector('#chapter3');
+            const newBgImage = 'url(./images/dream2.png)'; // Replace with your new image URL
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.backgroundImage = 'url(./images/dream2.png)';
+                    }, 3000); // Delay of 2 seconds
+                }
+            });
+            }, { threshold: 0.9}); // Adjust the threshold as needed
+
+            observer.observe(section3);
+        });
+    </script>
 
 </body>
 </html>
